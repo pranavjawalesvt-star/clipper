@@ -24,7 +24,10 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y ffmpeg
           pip install yt-dlp groq
-
+      - name: Install JavaScript runtime
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
       - name: Get video
         env:
           VIDEO_URL: ${{ inputs.video_url }}
